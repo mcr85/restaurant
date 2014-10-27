@@ -3,32 +3,6 @@ var mongoskin = require('mongoskin');
 var router = express.Router();
 var db = mongoskin.db('mongodb://localhost:27017/test', {safe:true});
 
-var weeklyPlan = [
-    { id: "pon", dishes: [] },
-    { id: "wt", dishes: [] },
-    { id: "sr", dishes: [] },
-    { id: "czw", dishes: [] },
-    { id: "pia", dishes: [] },
-    { id: "sob", dishes: [] },
-    { id: "nie", dishes: [] }
-];
-
-var menus = { menus: [
-    { name: "Menu na Poniedziałek", dishes: [
-        "543ecb74dae3a1ef710f2752",
-        "543ecb74dae3a1ef710f2753",
-        "543ecb74dae3a1ef710f2754",
-        "543ecb74dae3a1ef710f2755"
-    ] },
-    { name: "Menu na Wtorek", dishes: [] },
-    { name: "Menu na Środę", dishes: [] },
-    { name: "Menu na Czwartek", dishes: [] },
-    { name: "Menu na Piątek", dishes: [] },
-    { name: "Menu na Sobotę", dishes: [] },
-    { name: "Menu na Niedzielę", dishes: [] }
-]};
-
-
 router.get('/', function(req, res) {
     db.collection('menus').find().toArray(function(err, result) {
         if (err) throw err;
@@ -60,13 +34,17 @@ router.post('/', function(req, res) {
         name: req.body.name,
         dishes: req.body.dishes
     };
-    db.collection('menus').insert(menu, function(err, result) {
-        if (err) throw err;
-        if (result) {
-            console.log('Menu added', result);
-            res.json(result);
-        }
-    });
+    if (req.body && req.body.name || req.body.dishes.length > 0) {
+        db.collection('menus').insert(menu, menu, function(err, result) {
+            if (err) throw err;
+            if (result) {
+                console.log('Menu added', result);
+                res.json(result);
+            }
+        });
+    } else {
+        throw new Error('Wrong Menu data');
+    }
 });
 
 router.delete('/:id', function(req, res) {
@@ -78,9 +56,21 @@ router.delete('/:id', function(req, res) {
 });
 
 router.put('/:id', function(req, res) {
-    db.collection('menus').updateById(req.params.id, function(err, result) {
-        if (err) throw er;
-    });
+    var menu = {
+        name: req.body.name,
+        dishes: req.body.dishes
+    };
+    if (req.body && req.body.name || req.body.dishes.length > 0) {
+        db.collection('menus').updateById(req.params.id, menu, function(err, result) {
+            if (err) throw err;
+            if (result) {
+                console.log('Menu updated', result);
+                res.json(result);
+            }
+        });
+    } else {
+        throw new Error('Wrong Menu data');
+    }
 });
 
 module.exports = router;
