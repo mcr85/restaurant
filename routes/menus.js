@@ -30,12 +30,12 @@ router.get('/:id', function(req, res) {
 });
 
 router.post('/', function(req, res) {
-    var menu = {
-        name: req.body.name,
-        dishes: req.body.dishes
-    };
     if (req.body && req.body.name || req.body.dishes.length > 0) {
-        db.collection('menus').insert(menu, menu, function(err, result) {
+        var menu = {
+            name: req.body.name,
+            dishes: req.body.dishes
+        };
+        db.collection('menus').insert(menu, function(err, result) {
             if (err) throw err;
             if (result) {
                 console.log('Menu added', result);
@@ -56,11 +56,11 @@ router.delete('/:id', function(req, res) {
 });
 
 router.put('/:id', function(req, res) {
-    var menu = {
-        name: req.body.name,
-        dishes: req.body.dishes
-    };
     if (req.body && req.body.name || req.body.dishes.length > 0) {
+        var menu = {
+            name: req.body.name,
+            dishes: req.body.dishes
+        };
         db.collection('menus').updateById(req.params.id, menu, function(err, result) {
             if (err) throw err;
             if (result) {
