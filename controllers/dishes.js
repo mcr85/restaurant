@@ -6,7 +6,7 @@ exports.getDishCategories = function(req, res) {
         if (err) throw err;
         res.json(result);
     });
-}
+};
 
 exports.getDishesByCategory = function(req, res) {
     var category = req.params.category;
@@ -15,21 +15,21 @@ exports.getDishesByCategory = function(req, res) {
             if (err) throw err;
             res.json(result);
         });
-}
+};
 
 exports.getDishes = function(req, res) {
     db.collection('dishes').find({}).toArray(function(err, result) {
         if (err) throw err;
         res.json(result);
     });
-}
+};
 
 exports.getDish = function(req, res) {
     db.collection('dishes').findById(req.params.id, function(err, result) {
         if (err) throw err;
         res.json(result);
     });
-}
+};
 
 
 exports.createDish = function(req, res) {
@@ -46,7 +46,7 @@ exports.createDish = function(req, res) {
             res.json(result);
         }
     });
-}
+};
 
 exports.removeDish = function(req, res) {
     db.collection('dishes').removeById(req.params.id, function(err, result) {
@@ -56,7 +56,7 @@ exports.removeDish = function(req, res) {
             res.json({ success: true });
         }
     });
-}
+};
 
 exports.updateDish = function(req, res, next) {
     var dish = parseDishData(req.body);
@@ -67,7 +67,7 @@ exports.updateDish = function(req, res, next) {
             res.json(result);
         }
     });
-}
+};
 
 function parseDishData(requestBody) {
     return {
