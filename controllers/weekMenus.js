@@ -2,7 +2,7 @@ var mongoskin = require('mongoskin');
 var db = mongoskin.db('mongodb://localhost:27017/test', {safe:true});
 
 exports.getWeeklyMenus = function(req, res) {
-    db.collection('week_menus').find().toArray(function(err, menus) {
+    db.collection('week_menus').find({}, { _id: 0 }).toArray(function(err, menus) {
         if (err) throw err;
         res.json(menus);
     });
@@ -11,7 +11,7 @@ exports.getWeeklyMenus = function(req, res) {
 exports.getWeeklyMenu = function(req, res) {
     var day = parseInt(req.params.day);
     if (day > 0 && day <= 7) {
-        db.collection('week_menus').findOne({ day: day }, function(err, weekMenu) {
+        db.collection('week_menus').findOne({ day: day }, { _id: 0 }, function(err, weekMenu) {
             if (err) throw err;
 
             var id = weekMenu.menu_id;

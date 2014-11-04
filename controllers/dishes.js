@@ -1,22 +1,6 @@
 var mongoskin = require('mongoskin');
 var db = mongoskin.db('mongodb://localhost:27017/test', {safe:true});
 
-exports.getDishCategories = function(req, res) {
-    db.collection('categories').find().toArray(function(err, result) {
-        if (err) throw err;
-        res.json(result);
-    });
-};
-
-exports.getDishesByCategory = function(req, res) {
-    var category = req.params.category;
-    db.collection('dishes') .find({ category_id: category })
-        .toArray(function(err, result) {
-            if (err) throw err;
-            res.json(result);
-        });
-};
-
 exports.getDishes = function(req, res) {
     db.collection('dishes').find({}).toArray(function(err, result) {
         if (err) throw err;
@@ -31,14 +15,8 @@ exports.getDish = function(req, res) {
     });
 };
 
-
 exports.createDish = function(req, res) {
-    var dish = {
-        name: req.body.name,
-        category_id: req.body.category_id,
-        price: parseInt(req.body.price, 10),
-        ingredients: req.body.ingredients
-    }; 
+    var dish = parseDishData(req.body);
     db.collection('dishes').insert(dish, function(err, result) {
         if (err) throw err;
         if (result) {
@@ -68,6 +46,23 @@ exports.updateDish = function(req, res, next) {
         }
     });
 };
+
+exports.getDishCategories = function(req, res) {
+    db.collection('categories').find().toArray(function(err, result) {
+        if (err) throw err;
+        res.json(result);
+    });
+};
+
+exports.getDishesByCategory = function(req, res) {
+    var category = req.params.category;
+    db.collection('dishes') .find({ category_id: category })
+        .toArray(function(err, result) {
+            if (err) throw err;
+            res.json(result);
+        });
+};
+
 
 function parseDishData(requestBody) {
     return {
