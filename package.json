@@ -17,6 +17,10 @@
   },
   "devDependencies": {
     "expect.js": "^0.3.1",
+    "karma": "^0.12.24",
+    "karma-chrome-launcher": "^0.1.5",
+    "karma-expect": "^1.1.0",
+    "karma-mocha": "^0.1.9",
     "mocha": "^1.21.5",
     "superagent": "^0.20.0"
   }
