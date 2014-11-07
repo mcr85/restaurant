@@ -1,0 +1,18 @@
+{
+  "name": "restaurant",
+  "version": "0.0.1",
+  "homepage": "https://github.com/mcr85/restaurant",
+  "authors": [
+    "mcr5@o2.pl"
+  ],
+  "description": "full stack javascript application for managing restaurant menu",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

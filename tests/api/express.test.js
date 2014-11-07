@@ -97,7 +97,7 @@ describe('Week menus suite', function() {
     it('gets week menus', function(done) {
         request('localhost:3000/api/week-menus').end(function(res) {
             var weekMenu = res.body[0];
-            expect(res.status).to.be.equal(200)
+            expect(res.status).to.be.equal(200);
             expect(res.body.length).above(0);
             expect(weekMenu).to.have.property('day');
             expect(weekMenu.day).to.be.a('number');
