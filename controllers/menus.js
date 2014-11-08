@@ -66,7 +66,7 @@ exports.updateMenu = function(req, res) {
 
 function parseMenuData(requestBody) {
     return {
-        name: requestBody.body.name,
-        dishes: requestBody.body.dishes
+        name: requestBody.name,
+        dishes: requestBody.dishes
     };
 }

@@ -66,9 +66,9 @@ exports.getDishesByCategory = function(req, res) {
 
 function parseDishData(requestBody) {
     return {
-        name: requestBody.body.name,
-        category_id: requestBody.body.category_id,
-        price: parseInt(requestBody.body.price, 10),
-        ingredients: requestBody.body.ingredients
+        name: requestBody.name,
+        category_id: requestBody.category_id,
+        price: parseInt(requestBody.price, 10),
+        ingredients: requestBody.ingredients
     }; 
 }
