@@ -31,9 +31,9 @@ exports.createMenu = function(req, res) {
         var menu = parseMenuData(req.body);
         db.collection('menus').insert(menu, function(err, result) {
             if (err) throw err;
-            if (result) {
+            if (result && result.length > 0) {
                 console.log('Menu added', result);
-                res.json(result);
+                res.json(result[0]);
             }
         });
     } else {
@@ -54,9 +54,9 @@ exports.updateMenu = function(req, res) {
         var menu = parseMenuData(requestBody);
         db.collection('menus').updateById(req.params.id, menu, function(err, result) {
             if (err) throw err;
-            if (result) {
+            if (result && result.length > 0) {
                 console.log('Menu updated', result);
-                res.json(result);
+                res.json(result[0]);
             }
         });
     } else {

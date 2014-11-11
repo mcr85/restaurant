@@ -5,21 +5,21 @@ module.exports = function(config) {
     config.set({
 
         // base path that will be used to resolve all patterns (eg. files, exclude)
-        basePath: '',
+        basePath: './public/',
 
 
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['mocha', 'expect'],
+        frameworks: ['mocha', 'expect', 'sinon'],
 
 
         // list of files / patterns to load in the browser
         files: [
-            'public/vendor/jquery/dist/jquery.min.js',
-            'public/vendor/underscore/underscore-min.js',
-            'public/vendor/backbone/backbone.js',
-            'public/scripts/**/*.js',
-            'public/tests/**/*_test.js'
+            'vendor/jquery/dist/jquery.js',
+            'vendor/underscore/underscore.js',
+            'vendor/backbone/backbone.js',
+            'scripts/**/*.js',
+            'tests/**/*_test.js'
         ],
 
 

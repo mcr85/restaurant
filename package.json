@@ -21,7 +21,9 @@
     "karma-chrome-launcher": "^0.1.5",
     "karma-expect": "^1.1.0",
     "karma-mocha": "^0.1.9",
+    "karma-sinon": "^1.0.3",
     "mocha": "^1.21.5",
+    "sinon": "^1.11.1",
     "superagent": "^0.20.0"
   }
 }

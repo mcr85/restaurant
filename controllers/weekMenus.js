@@ -45,8 +45,10 @@ exports.createWeeklyMenu = function(req, res) {
         };
         db.collection('week_menus').insert(weekMenu, function(err, result) {
             if (err) throw err;
-            console.log('Week Menu added', result);
-            res.json(result);
+            if (result && result.length > 0) {
+                console.log('Week Menu added', result);
+                res.json(result[0]);
+            }
         });
     } else {
         throw new Error('Wrong Week Menu data');

@@ -19,9 +19,9 @@ exports.createDish = function(req, res) {
     var dish = parseDishData(req.body);
     db.collection('dishes').insert(dish, function(err, result) {
         if (err) throw err;
-        if (result) {
+        if (result && result.length > 0) {
             console.log('Dish added', result);
-            res.json(result);
+            res.json(result[0]);
         }
     });
 };
@@ -40,9 +40,9 @@ exports.updateDish = function(req, res, next) {
     var dish = parseDishData(req.body);
     db.collection('dishes').updateById(req.params.id, dish, function(err, result) {
         if (err) throw err;
-        if (result) {
+        if (result && result.length > 0) {
             console.log('Dish updated');
-            res.json(result);
+            res.json(result[0]);
         }
     });
 };

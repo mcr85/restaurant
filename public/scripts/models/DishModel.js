@@ -7,9 +7,17 @@ app.models = app.models || {};
         urlRoot: '/api/dishes',
         defaults: {
             name: '',
-            category: '',
+            category_id: '',
             price: 0,
             ingredients: []
+        },
+        validate: function(attrs) {
+            if (!attrs.name) {
+                return 'cannot have empty name';
+            }
+            if (!attrs.category_id) {
+                return 'cannot have empty category_id';
+            }
         }
     });
 }(app));
