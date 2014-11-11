@@ -18,6 +18,8 @@ module.exports = function(config) {
             'vendor/jquery/dist/jquery.js',
             'vendor/underscore/underscore.js',
             'vendor/backbone/backbone.js',
+            'scripts/models/DishModel.js',
+            'scripts/collections/DishCollection.js',
             'scripts/**/*.js',
             'tests/**/*_test.js'
         ],

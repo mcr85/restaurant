@@ -81,7 +81,10 @@ describe('Dish model suite', function() {
             this.dishModel.set('name', 'pierogi');
             this.dishModel.set('category_id', 'lunch');
             this.dishModel.set('price', 9.99);
+        });
 
+        afterEach(function() {
+            this.server.restore();
         });
 
         it('sends proper post request on save', function() {
@@ -98,10 +101,6 @@ describe('Dish model suite', function() {
             this.server.respond();
 
             expect(this.dishModel.get('_id')).to.be(1);
-        });
-
-        afterEach(function() {
-            this.server.restore();
         });
     });
 
