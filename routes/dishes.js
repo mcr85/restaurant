@@ -2,7 +2,7 @@ var router = require('express').Router();
 var dishesController = require('../controllers/dishes');
 
 router.get('/categories', dishesController.getDishCategories);
-router.get('/category/:category', dishesController.getDishesByCategory);
+router.get('/categories/:category', dishesController.getDishesByCategory);
 router.get('/', dishesController.getDishes);
 router.get('/:id', dishesController.getDish);
 router.post('/', dishesController.createDish);

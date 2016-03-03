@@ -1,74 +1,86 @@
-var mongoskin = require('mongoskin');
-var db = mongoskin.db('mongodb://localhost:27017/test', {safe:true});
+'use strict'
 
-exports.getDishes = function(req, res) {
-    db.collection('dishes').find({}).toArray(function(err, result) {
-        if (err) throw err;
-        res.json(result);
-    });
-};
+const Dish = require('../models/Dish.model')
+const Category = require('../models/Category.model')
 
-exports.getDish = function(req, res) {
-    db.collection('dishes').findById(req.params.id, function(err, result) {
-        if (err) throw err;
-        res.json(result);
-    });
-};
+module.exports = {
+  getDishes,
+  getDish,
+  createDish,
+  removeDish,
+  updateDish,
+  getDishCategories,
+  getDishesByCategory,
+  parseDishData
+}
 
-exports.createDish = function(req, res) {
-    var dish = parseDishData(req.body);
-    db.collection('dishes').insert(dish, function(err, result) {
-        if (err) throw err;
-        if (result && result.length > 0) {
-            console.log('Dish added', result);
-            res.json(result[0]);
-        }
-    });
-};
+function getDishes(req, res) {
+  Dish.find({}, function (err, dishes) {
+    if (err) res.send(err)
+    res.json(dishes)
+  })
+}
 
-exports.removeDish = function(req, res) {
-    db.collection('dishes').removeById(req.params.id, function(err, result) {
-        if (err) throw err;
-        if (result) {
-            console.log('Dish removed', result);
-            res.json({ success: true });
-        }
-    });
-};
+function getDish(req, res) {
+  Dish.findOne({ _id: req.params.id }, function (err, result) {
+    if (err) throw err
+    res.json(result)
+  })
+}
 
-exports.updateDish = function(req, res, next) {
-    var dish = parseDishData(req.body);
-    db.collection('dishes').updateById(req.params.id, dish, function(err, result) {
-        if (err) throw err;
-        if (result && result.length > 0) {
-            console.log('Dish updated');
-            res.json(result[0]);
-        }
-    });
-};
+function createDish(req, res) {
+  Dish.create(parseDishData(req.body), function (err, result) {
+    if (err) throw err
+    if (result && result.length > 0) {
+      console.log('Dish added', result)
+      res.json(result)
+    }
+  })
+}
 
-exports.getDishCategories = function(req, res) {
-    db.collection('categories').find().toArray(function(err, result) {
-        if (err) throw err;
-        res.json(result);
-    });
-};
+function removeDish(req, res) {
+  Dish.remove({ _id: req.params.id }, function (err, result) {
+    if (err) throw err
+    if (result) {
+      console.log('Dish removed', result)
+      res.json({ success: true })
+    }
+  })
+}
 
-exports.getDishesByCategory = function(req, res) {
-    var category = req.params.category;
-    db.collection('dishes') .find({ category_id: category })
-        .toArray(function(err, result) {
-            if (err) throw err;
-            res.json(result);
-        });
-};
+function updateDish(req, res) {
+  const dish = parseDishData(req.body);
+  
+  Dish.findOneAndUpdate({ _id: req.params.id }, dish, function (err, result) {
+    if (err) throw err
+    if (result && result.length > 0) {
+      console.log('Dish updated')
+      res.json(result)
+    }
+  })
+}
 
+function getDishCategories(req, res) {
+  Category.find({}, function (err, result) {
+    if (err) throw err
+    res.json(result)
+  })
+}
+
+function getDishesByCategory(req, res) {
+  const category = req.params.category;
+
+  Dish.find({ category_id: category }, function (err, result) {
+    if (err) throw err
+    res.json(result)
+  })
+}
 
 function parseDishData(requestBody) {
-    return {
-        name: requestBody.name,
-        category_id: requestBody.category_id,
-        price: parseInt(requestBody.price, 10),
-        ingredients: requestBody.ingredients
-    }; 
+  return {
+    name: requestBody.name,
+    category_id: requestBody.category_id,
+    price: parseInt(requestBody.price, 10),
+    ingredients: requestBody.ingredients
+  }
 }

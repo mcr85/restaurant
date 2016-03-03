@@ -1,3 +1,6 @@
+'use strict'
+
+var mongoose = require('mongoose');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -5,10 +8,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
+// var routes = require('./routes/index');
 var dishes = require('./routes/dishes');
-var menus = require('./routes/menus');
-var weekMenus = require('./routes/weekMenus');
+// var menus = require('./routes/menus');
+// var weekMenus = require('./routes/weekMenus');
 
 var app = express();
 
@@ -25,13 +28,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // ROUTES
-app.use('/', routes);
+// app.use('/', routes);
 app.use('/api/dishes', dishes);
-app.use('/api/menus', menus);
-app.use('/api/week-menus', weekMenus);
-app.use('/api', function(req, res) {
-    if (/^\/api\/$/.test('/api/')) res.send('Restaurant API');
-});
+// app.use('/api/menus', menus);
+// app.use('/api/week-menus', weekMenus);
+// app.use('/api', function(req, res) {
+    // if (/^\/api\/$/.test('/api/')) res.send('Restaurant API');
+// });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -44,6 +47,7 @@ app.use(function(req, res, next) {
 
 // development error handler
 // will print stacktrace
+// 4 arguments, first error, express treats this as error handler
 if (app.get('env') === 'development') {
     app.use(function(err, req, res, next) {
         res.status(err.status || 500);
@@ -64,6 +68,8 @@ app.use(function(err, req, res, next) {
     });
 });
 
+// TODO: handle error
+mongoose.connect('mongodb://localhost:27017/test');
 
 app.listen(3000);
 

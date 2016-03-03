@@ -1,0 +1,4 @@
+node_modules/
+public/vendor/
+.vscode
+npm-debug.log

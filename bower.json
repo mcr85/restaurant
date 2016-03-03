@@ -5,7 +5,7 @@
   "authors": [
     "mcr5@o2.pl"
   ],
-  "description": "full stack javascript application for managing restaurant menu",
+  "description": "Full stack javascript application for managing restaurant menu",
   "license": "MIT",
   "private": true,
   "ignore": [
@@ -15,8 +15,5 @@
     "test",
     "tests"
   ],
-  "dependencies": {
-    "backbone": "~1.1.2",
-    "jquery": "~2.1.1"
-  }
+  "dependencies": {}
 }

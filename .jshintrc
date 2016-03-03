@@ -1,0 +1,224 @@
+{
+
+  // See http:
+  //jshint.com/docs/ for more details
+
+  // {int} Maximum error before stopping
+  "maxerr": 20,
+
+  // Enforcing
+
+  // Prohibit bitwise operators (&, |, ^, etc.)
+  "bitwise": true,
+
+  // (deprectaed)
+  // Identifiers must be in camelCase
+  //"camelcase": true,
+
+  // Require {} for every new block or scope
+  "curly" : false,
+
+  // Require triple equals (===) for comparison
+  "eqeqeq": true,
+
+  // Require filtering for..in loops with obj.hasOwnProperty()
+  "forin": true,
+
+  // prohibits overwriting prototypes of native objects such as Array, Date etc.
+  "freeze": true,
+
+  // (deprectaed)
+  // Require immediate invocations to be wrapped in parens e.g. `(function () { } ());`
+  //"immed": false,
+
+  // (deprectaed)
+  // Number of spaces to use for indentation
+  "indent": 2,
+
+  // Require variables/functions to be defined before being used
+  "latedef": "nofunc",
+
+  // (deprectaed)
+  // Require capitalization of all constructor functions e.g. `new F()`
+  // "newcap" : true,
+
+  // Prohibit use of `arguments.caller` and `arguments.callee`
+  "noarg" : true,
+
+  // (deprectaed)
+  // Prohibit use of empty blocks
+  //"noempty": true,
+
+  // Prohibit "non-breaking whitespace" characters.
+  "nonbsp" : true,
+
+  // Prohibit use of constructors for side-effects (without assignment)
+  "nonew": true,
+
+  // Prohibit use of `++` & `--`
+  "plusplus" : false,
+
+  // (deprectaed)
+  // Quotation mark consistency:
+  //   false    : do nothing (default)
+  //   true     : ensure whatever is used is consistent
+  //   "single" : require single quotes
+  //   "double" : require double quotes
+  // "quotmark": "single",
+
+  // Require all non-global variables to be declared (prevents global leaks)
+  "undef" : true,
+
+  // Unused variables:
+  //   true     : all variables, last function parameter
+  //   "vars"   : all variables only
+  //   "strict" : all variables, all function parameters
+  "unused": true,
+
+  // Requires all functions run in ES5 Strict Mode
+  "strict": true,
+
+  // Max number of formal params allowed per function
+  "maxparams" : 10,
+
+  // Max depth of nested blocks (within functions)
+  "maxdepth" : 5,
+
+  // Max number statements per function
+  "maxstatements" : 40,
+
+  // Max cyclomatic complexity per function
+  "maxcomplexity" : 8,
+
+  // (deprectaed)
+  // Max number of characters per line
+  // "maxlen" : 80,
+
+  // Disallow any var statements. Only `let` and `const` are allowed.
+  "varstmt" : false,
+
+  // Relaxing
+
+  // Tolerate Automatic Semicolon Insertion (no semicolons)
+  "asi": true,
+
+  // Tolerate assignments where comparisons would be expected
+  "boss": false,
+
+  // Allow debugger statements e.g. browser breakpoints.
+  "debug": false,
+
+  // Tolerate use of `== null`
+  "eqnull": false,
+
+  // Allow ES5 syntax (ex: getters and setters)
+  "es5": false,
+
+  // Allow ES.next (ES6) syntax (ex: `const`)
+  "esnext": true,
+
+  // Allow Mozilla specific syntax (extends and overrides esnext features)
+  "moz": false,
+
+  // Tolerate use of `eval` and `new Function()`
+  "evil": false,
+
+  // Tolerate `ExpressionStatement` as Programs
+  "expr": false,
+
+  // Tolerate defining variables inside control statements
+  "funcscope": false,
+
+  // Allow global "use strict" (also enables 'strict')
+  "globalstrict" : false,
+
+  // Tolerate using the `__iterator__` property
+  "iterator" : false,
+
+  // Tolerate omitting a semicolon for the last statement of a 1-line block
+  "lastsemic": true,
+
+  // (deprectaed)
+  // Tolerate possibly unsafe line breakings
+  // "laxbreak": false,
+
+  // (deprectaed)
+  // Tolerate comma-first style coding
+  // "laxcomma": false,
+
+  // Tolerate functions being defined in loops
+  "loopfunc": false,
+
+  // (deprectaed)
+  // Tolerate multi-line strings
+  // "multistr": false,
+
+  // Tolerate generator functions with no yield statement in them.
+  "noyield": false,
+
+  // Tolerate invalid typeof operator values
+  "notypeof": false,
+
+  // Tolerate using the `__proto__` property
+  "proto": false,
+
+  // Tolerate script-targeted URLs
+  "scripturl": false,
+
+  // Allows re-define variables later in code e.g. `var x=1; x=2;`
+  "shadow": false,
+
+  // (deprectaed)
+  // Tolerate using `[]` notation when it can still be expressed in dot notation
+  // "sub": true,
+
+  // Tolerate `new function () { ... };` and `new Object;`
+  "supernew" : false,
+
+  // Tolerate using this in a non-constructor function
+  "validthis": false,
+
+  // Environments
+
+  // Web Browser (window, document, etc)
+  "browser": true,
+
+  // Browserify (node.js code in the browser)
+  "browserify": true,
+
+  // Development/debugging (alert, confirm, etc)
+  "devel": true,
+
+  // Jasmine
+  "jasmine": true,
+
+  // jQuery
+  "jquery": false,
+
+  // Mocha
+  "mocha": true,
+
+  // Node.js
+  "node": true,
+
+  // Widely adopted globals (escape, unescape, etc)
+  "nonstandard" : false,
+
+  // PhantomJS
+  "phantom": false,
+
+  // Globals for typed array constructions
+  "typed": false,
+
+  // Web Workers
+  "worker": false,
+
+  // Windows Scripting Host
+  "wsh": false,
+
+  // Custom Globals
+  "globals": {
+    "angular": false,
+    "$": false
+  }
+}
