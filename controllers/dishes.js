@@ -15,9 +15,9 @@ module.exports = {
 }
 
 function getDishes(req, res) {
-  Dish.find({}, function (err, dishes) {
+  Dish.find({}, function (err, result) {
     if (err) res.send(err)
-    res.json(dishes)
+    res.json(result)
   })
 }
 
