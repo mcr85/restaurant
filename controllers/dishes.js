@@ -22,13 +22,17 @@ function getDishes(req, res) {
 }
 
 function getDish(req, res) {
-  Dish.findOne({ _id: req.params.id }, function (err, result) {
+  Dish.findById(req.params.id, function (err, result) {
     if (err) throw err
     res.json(result)
   })
 }
 
 function createDish(req, res) {
+  if (!req.body && (!req.body.name || req.body.length === 0)) {
+    return res.status(400).send('Bad request. Missing Dish details.')
+  }
+  
   Dish.create(parseDishData(req.body), function (err, result) {
     if (err) throw err
     if (result && result.length > 0) {
@@ -39,7 +43,7 @@ function createDish(req, res) {
 }
 
 function removeDish(req, res) {
-  Dish.remove({ _id: req.params.id }, function (err, result) {
+  Dish.findByIdAndRemove(req.params.id, function (err, result) {
     if (err) throw err
     if (result) {
       console.log('Dish removed', result)
@@ -49,9 +53,13 @@ function removeDish(req, res) {
 }
 
 function updateDish(req, res) {
-  const dish = parseDishData(req.body);
+  if (!req.body && (!req.body.name || req.body.length === 0)) {
+    return res.status(400).send('Bad request. Missing Dish details.')
+  }
   
-  Dish.findOneAndUpdate({ _id: req.params.id }, dish, function (err, result) {
+  const dish = parseDishData(req.body)
+  
+  Dish.findByIdAndUpdate(req.params.id, dish, function (err, result) {
     if (err) throw err
     if (result && result.length > 0) {
       console.log('Dish updated')
