@@ -11,7 +11,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var dishes = require('./routes/dishes');
 var menus = require('./routes/menus');
-// var weekMenus = require('./routes/weekMenus');
+var weekMenus = require('./routes/weekMenus');
 
 var app = express();
 
@@ -31,7 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/api/dishes', dishes);
 app.use('/api/menus', menus);
-// app.use('/api/week-menus', weekMenus);
+app.use('/api/week-menus', weekMenus);
 // app.use('/api', function(req, res) {
     // if (/^\/api\/$/.test('/api/')) res.send('Restaurant API');
 // });
