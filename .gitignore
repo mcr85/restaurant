@@ -1,5 +1,5 @@
 node_modules/
-public/vendor/
+public/jspm_packages/
 typings/
 .vscode
 npm-debug.log

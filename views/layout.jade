@@ -3,5 +3,9 @@ html
     head
         title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
-  body
+    script(src='/jspm_packages/system.js')
+    script(src='/config.js')
+    script.
+      System.import('app/main').catch(console.error.bind(console))
+  body(ng-controller='MainController as mainCtrl')
       block content
