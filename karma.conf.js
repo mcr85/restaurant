@@ -15,13 +15,8 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         files: [
-            'vendor/jquery/dist/jquery.js',
-            'vendor/underscore/underscore.js',
-            'vendor/backbone/backbone.js',
-            'scripts/models/DishModel.js',
-            'scripts/collections/DishCollection.js',
-            'scripts/**/*.js',
-            'tests/**/*_test.js'
+            'app/**/*.js',
+            'app/**/*_test.js'
         ],
 
 

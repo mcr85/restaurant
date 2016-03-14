@@ -8,8 +8,6 @@ const main = angular
   .module('Main', [])
   .controller('MainController', MainController)
 
-export default main
-
 angular.element(document).ready(() => angular.bootstrap(document, [main.name]))
 
-console.log('jest main')
+export default main
