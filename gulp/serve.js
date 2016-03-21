@@ -7,9 +7,9 @@ var nodemon = require('nodemon')
 var bs = browserSync.create()
 
 gulp.task('serve', ['browser-sync'], function() {
-  gulp.watch('public/**/*.js').on('change', bs.reload)
-  gulp.watch('**/*css').on('change', bs.reload)
-  gulp.watch('**/*.tpl.html').on('change', bs.reload)
+  gulp.watch('public/app/**/*.js').on('change', bs.reload)
+  gulp.watch('public/app/**/*css').on('change', bs.reload)
+  gulp.watch('public/app/**/*.tpl.html').on('change', bs.reload)
 })
 
 // TODO: check browser sync docs
@@ -27,7 +27,7 @@ gulp.task('nodemon', [], function (done) {
 
   return nodemon({
     script: 'index.js',
-    watch: ['**/*.js', '**/*.jade', '!public/**/*.*']
+    watch: ['**/*.js', '**/*.jade', '!node_modules/**/*.*', '!public/**/*.*']
   })
     .on('start', function() {
       if (!running) done()

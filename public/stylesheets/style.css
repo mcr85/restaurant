@@ -6,3 +6,33 @@ body {
 a {
   color: #00B7FF;
 }
+
+.main-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+  .main-menu md-content {
+    min-width: 200px;
+    background-color: #20783A;
+  }
+
+    .main-menu-list {
+      padding: 0;
+      width: 100%;
+    }
+
+      .main-menu-list-item {
+        padding: 0;
+        list-style: none;
+        list-style-position: inside;
+        color: #fff;
+      }
+      
+        .main-menu-list-item .md-button {
+          display: block;
+          margin: 0;
+          padding: 0 16px 0 32px;
+          border-radius: 0;
+          text-align: left;
+        }

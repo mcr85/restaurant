@@ -1,11 +1,11 @@
 doctype html
 html
     head
-        title= title
+        title='Restaurant Admin'
     link(rel='stylesheet', href='/stylesheets/style.css')
     script(src='/jspm_packages/system.js')
     script(src='/config.js')
     script.
-      System.import('app/main').catch(console.error.bind(console))
+      System.import('app/index').catch(console.error.bind(console))
   body(ng-controller='MainController as mainCtrl')
       block content
