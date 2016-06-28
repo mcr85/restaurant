@@ -1,7 +1,7 @@
-class MainController {
+'use strict'
+
+export default class MainController {
   constructor() {
     this.prop = 'A prop'
   }
 }
-
-export default MainController

@@ -1,0 +1,30 @@
+<h1>Dishes</h1>
+
+<!--<md-list>
+  <md-list-item ng-repeat="dish in dishesCtrl.dishes">
+    <span>{{ dish.name }}</span>
+  </md-list-item>
+</md-list>-->
+
+<md-table-container>
+  <table md-table md-progress="dishesCtrl.loadDishesPromise">
+    <thead md-head md-order="dishesCtrl.order">
+      <tr md-row>
+        <td md-column>#</td>
+        <td md-column md-order-by="name">Nazwa</td>
+        <td md-column md-order-by="category_id">Kategoria</td>
+        <td md-column md-order-by="price">Cena</td>
+        <td md-column md-order-by="name">Składniki</td>
+      </tr>
+    </thead>
+    <tbody md-body>
+      <tr md-row ng-repeat="dish in dishesCtrl.dishes | orderBy: dishesCtrl.order">
+        <td md-cell>{{ $index }}</td>
+        <td md-cell>{{ dish.name }}</td>
+        <td md-cell>{{ dish.category_id }}</td>
+        <td md-cell>{{ dish.price }}</td>
+        <td md-cell>{{ dish.ingredients }}</td>
+      </tr>
+    </tbody>
+  </table>
+</md-table-container>

@@ -2,13 +2,18 @@
 
 import angular from 'angular'
 import 'angular-ui-router'
+import 'angular-resource'
 import 'angular-material'
+
 import MainController from './main.controller'
+import Dishes from 'app/dishes/dishes.module'
 
 const main = angular
   .module('Main', [
     'ui.router',
-    'ngMaterial'
+    'ngResource',
+    'ngMaterial',
+    Dishes.name
   ])
   .config(config)
   .controller('MainController', MainController)
@@ -17,12 +22,14 @@ config.$inject = ['$stateProvider']
 function config($stateProvider) {
   $stateProvider
     .state('home', {
+      template: `<h1>Home</h1>`,
       url: '/',
-      template: `<h1>HOME</h1>`
     })
     .state('dishes', {
       url: '/dishes',
-      template: `<h1>Dishes</h1>`
+      templateUrl: 'app/dishes/dishes.html',
+      controller: 'DishesController',
+      controllerAs: 'dishesCtrl'
     })
     .state('menus', {
       url: '/menus',
