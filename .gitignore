@@ -1,6 +1,5 @@
 node_modules/
-public/jspm_packages/
 typings/
+public/
 .vscode
 npm-debug.log
-TODO.rst

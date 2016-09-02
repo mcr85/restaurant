@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "noImplicitAny": false,
+    "removeComments": true,
+    "sourceMap": true,
+    "module": "commonjs",
+    "experimentalDecorators": true,
+    "outDir": "client"
+  },
+  "exclude": [
+    ".git",
+    ".vscode",
+    "controllers",
+    "dump",
+    "models",
+    "node_modules",
+    "public",
+    "routes",
+    "tests",
+    "typings/main",
+    "typings/main.d.ts"
+  ]
+}

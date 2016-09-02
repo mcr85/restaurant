@@ -1,18 +1,18 @@
 'use strict'
 
-import angular from 'angular'
+import 'angular'
 import 'angular-ui-router'
 import 'angular-resource'
-import 'angular-material'
+// import 'angular-material'
 
 import MainController from './main.controller'
-import Dishes from 'app/dishes/dishes.module'
+import Dishes from './dishes/dishes.module'
 
 const main = angular
-  .module('Main', [
+  .module('app', [
     'ui.router',
     'ngResource',
-    'ngMaterial',
+    // 'ngMaterial',
     Dishes.name
   ])
   .config(config)

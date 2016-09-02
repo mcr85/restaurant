@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+  <title>Restaurant Admin</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <script src="build.js"></script>
+</head>
+
+<body ng-controller="MainController as mainCtrl">
+  <div layout>
+    <md-sdienav md-is-locked-open="$mdMedia('gt-sm')" class="main-menu">
+      <md-content flex>
+        <ul class="main-menu-list">
+          <li class="main-menu-list-item"><a ui-sref="home" class="md-button md-ink-ripple">Home</a></li>
+          <li class="main-menu-list-item"><a ui-sref="dishes" class="md-button md-ink-ripple">Dishes</a></li>
+          <li class="main-menu-list-item"><a ui-sref="menus" class="md-button md-ink-ripple">Menus</a></li>
+        </ul>
+      </md-content>
+    </md-sdienav>
+    <section ui-view></section>
+  </div>
+</body>
+
+</html>

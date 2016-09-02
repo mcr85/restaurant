@@ -1,6 +1,9 @@
 'use strict'
 
 export default class DishesController {
+  public dishes: Array<any>
+  public loadDishesPromise: angular.IPromise<Array<any>>
+
   constructor(DishesService) {
     console.log('dishes controller')
     

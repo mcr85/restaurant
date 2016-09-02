@@ -16,8 +16,8 @@ var weekMenus = require('./routes/weekMenus');
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'public', 'views'));
-app.set('view engine', 'jade');
+app.set('views', path.join(__dirname, 'public'));
+// app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
