@@ -3,12 +3,12 @@
   "version": "0.0.2",
   "private": true,
   "scripts": {
-    "serve-dev": "nodemon index.js",
-    "start": "webpack --config webpack.config.js",
-    "prestart": "npm run clean-public && npm run copy-files",
+    "serve:dev": "nodemon index.js",
+    "build:dev": "webpack --config webpack.config.js",
+    "prebuild:dev": "npm run clean-public && npm run copy-files",
     "validate-webpack": "webpack-validator webpack.config.js",
     "clean-public": "rimraf public",
-    "copy-files": "cpy client/index.html public"
+    "copy-files": "cpy 'client/favicon.ico' 'client/index.html' 'client/init_style.css' public"
   },
   "dependencies": {
     "angular": "^1.5.8",
@@ -27,7 +27,11 @@
   "devDependencies": {
     "cpy": "^4.0.1",
     "cpy-cli": "^1.0.1",
+    "html-loader": "^0.4.3",
+    "ng-annotate": "^1.2.1",
+    "ng-annotate-loader": "^0.1.1",
     "nodemon": "^1.9.1",
+    "raw-loader": "^0.5.1",
     "rimraf": "^2.5.4",
     "superagent": "^0.20.0",
     "ts-loader": "^0.8.2",

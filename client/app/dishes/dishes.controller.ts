@@ -5,8 +5,8 @@ export default class DishesController {
   public loadDishesPromise: angular.IPromise<Array<any>>
 
   constructor(DishesService) {
-    console.log('dishes controller')
-    
+    'ngInject'
+  
     this.dishes = null
 
     // on initialize
@@ -16,5 +16,3 @@ export default class DishesController {
     })
   }
 }
-
-DishesController.$inject = ['DishesService']

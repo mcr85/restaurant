@@ -1,7 +1,4 @@
 const { resolve } = require('path')
-// const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
-// const HtmlWebpackPlugin = require('html-webpack-plugin')
-// const webpack = require('webpack')
 
 module.exports = env => {
   return {
@@ -12,15 +9,15 @@ module.exports = env => {
     },
     devtool: 'source-map',
     resolve: {
-      root: __dirname,
       extensions: ['', '.ts', '.js', '.json']
-    },
-    resolveLoader: {
-      modulesDirectories: ['node_modules']
     },
     module: {
       loaders: [
-        {test: /\.ts$/, loader: 'ts-loader'}
+        {test: /\.ts$/, loader: 'ng-annotate!ts-loader', exclude: /node_modules/},
+        {test: /\.html$/, loader: 'raw', exclude: /node_modules/},
+        {test: /\.styl$/, loader: 'style!css!stylus'},
+        {test: /\.css$/, loader: 'style!css'},
+        {test: /\.(ttf|otf|eot|svg|woff(2)?)$/, loader: 'url'}
       ]
     }
   }

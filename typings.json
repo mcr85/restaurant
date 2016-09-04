@@ -1,4 +1,5 @@
 {
+  "resolution": "app-typings",
   "globalDependencies": {
     "angular": "registry:dt/angular#1.5.0+20160829152510",
     "angular-resource": "registry:dt/angular-resource#1.5.0+20160613142217",

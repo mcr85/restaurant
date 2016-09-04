@@ -1,30 +1,30 @@
 1. webpack
   - [X] 2016-09-02 TypeScript
-  - [X] 2016-09-02 es6 moduly
-  - [o] ladowanie plików html przez angular
-  - [ ] rozbicie bundli na vendor i app
-  - [ ] ladowanie css z poziomu js
+  - [X] 2016-09-02 es6 modules
+  - [X] 2016-09-04 loading angular html templates
+  - [o] loading css from module level
+  - [ ] app and vendor bundles
   - [ ] postcss ?
   - [ ] karma
 
-2. eslint czy tslint?
+2. eslint or tslint?
   - [ ] pre-commit hook
 
-3. do instalacji
+3. to install
   - [X] 2016-09-02 angular
   - [X] 2016-09-02 angular-material
   - [ ] angular-mocks (dev dependency)
   - [X] 2016-09-02 angular-resource
   - [X] 2016-09-02 angular-ui-router
-  - [ ] angular material
-  - [ ] mdDataTable (*sprawdzic*)
+  - [o] angular material
+  - [o] mdDataTable (*check*)
 
+4. Style guide, compare:
+  - https://github.com/toddmotto/angular-styleguide
+  - https://angular.io/styleguide
+  - https://github.com/Basware/typescript-ng1-style
 
-
-4. Todd Motto angular ES6 style guide
-  - [ ] co wybieramy
-
-Uruchamianie
+Launch
 `mongod --dbpath ~/data/db`
-`npm run start && npm run serve-dev`
+`npm run build:dev && npm run serve:dev`
 

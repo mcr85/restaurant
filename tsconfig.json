@@ -18,7 +18,7 @@
     "public",
     "routes",
     "tests",
-    "typings/main",
-    "typings/main.d.ts"
+    "app-typings/main",
+    "app-typings/main.d.ts"
   ]
 }

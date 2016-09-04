@@ -18,8 +18,9 @@ const main = angular
   .config(config)
   .controller('MainController', MainController)
 
-config.$inject = ['$stateProvider']
 function config($stateProvider) {
+  'ngInject'
+
   $stateProvider
     .state('home', {
       template: `<h1>Home</h1>`,
@@ -27,7 +28,7 @@ function config($stateProvider) {
     })
     .state('dishes', {
       url: '/dishes',
-      templateUrl: 'app/dishes/dishes.html',
+      template: require('./dishes/dishes.html'),
       controller: 'DishesController',
       controllerAs: 'dishesCtrl'
     })
