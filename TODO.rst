@@ -2,10 +2,10 @@
   - [X] 2016-09-02 TypeScript
   - [X] 2016-09-02 es6 modules
   - [X] 2016-09-04 loading angular html templates
-  - [o] loading css from module level
+  - [X] 2016-09-07 loading css from module level
   - [ ] app and vendor bundles
   - [ ] postcss ?
-  - [ ] karma
+  - [o] wallaby, mocha, chai, sinon
 
 2. eslint or tslint?
   - [ ] pre-commit hook
@@ -13,11 +13,11 @@
 3. to install
   - [X] 2016-09-02 angular
   - [X] 2016-09-02 angular-material
-  - [ ] angular-mocks (dev dependency)
+  - [o] angular-mocks (dev dependency)
   - [X] 2016-09-02 angular-resource
   - [X] 2016-09-02 angular-ui-router
-  - [o] angular material
-  - [o] mdDataTable (*check*)
+  - [X] 2016-09-07 angular material
+  - [X] 2016-09-07 mdDataTable (*check*)
 
 4. Style guide, compare:
   - https://github.com/toddmotto/angular-styleguide

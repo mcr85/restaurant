@@ -1,9 +1,14 @@
 'use strict'
 
+require('angular-material/angular-material.css')
+require('angular-material-data-table/dist/md-data-table.css')
+
 import 'angular'
 import 'angular-ui-router'
 import 'angular-resource'
-// import 'angular-material'
+import 'angular-material'
+import 'angular-material-data-table'
+
 
 import MainController from './main.controller'
 import Dishes from './dishes/dishes.module'
@@ -12,7 +17,8 @@ const main = angular
   .module('app', [
     'ui.router',
     'ngResource',
-    // 'ngMaterial',
+    'ngMaterial',
+    'md.data.table',
     Dishes.name
   ])
   .config(config)

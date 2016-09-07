@@ -2,6 +2,7 @@
   "resolution": "app-typings",
   "globalDependencies": {
     "angular": "registry:dt/angular#1.5.0+20160829152510",
+    "angular-material": "registry:dt/angular-material#1.1.0-rc5.0+20160805222743",
     "angular-resource": "registry:dt/angular-resource#1.5.0+20160613142217",
     "angular-ui-router": "registry:dt/angular-ui-router#1.1.5+20160810191828",
     "jquery": "registry:dt/jquery#1.10.0+20160704162008"
