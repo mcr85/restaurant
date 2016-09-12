@@ -1,11 +1,16 @@
 const { resolve } = require('path')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = env => {
   return {
-    entry: './client/app/index.ts',
+    entry: {
+      'app': './client/app/index.ts',
+      'style': './client/app/main.sass'
+    },
     output: {
-      filename: 'build.js',
-      path: resolve(__dirname, 'public')
+      path: resolve(__dirname, 'public'),
+      filename: '[name].js',
+      chunkFilename: '[name].js'
     },
     devtool: 'source-map',
     resolve: {
@@ -15,10 +20,23 @@ module.exports = env => {
       loaders: [
         {test: /\.ts$/, loader: 'ng-annotate!ts-loader', exclude: /node_modules/},
         {test: /\.html$/, loader: 'raw', exclude: /node_modules/},
-        {test: /\.styl$/, loader: 'style!css!stylus'},
-        {test: /\.css$/, loader: 'style!css'},
+        {
+          test: /\.css$/,
+          loader: ExtractTextPlugin.extract({
+            fallbackLoader: 'style-loader',
+            loader: 'css-loader'
+          })},
+        {
+          test: /\.sass$/,
+          loader: ExtractTextPlugin.extract({
+            fallbackLoader: 'style-loader',
+            loader: 'css-loader!sass-loader'
+          })},
         {test: /\.(ttf|otf|eot|svg|woff(2)?)$/, loader: 'url'}
       ]
-    }
+    },
+    plugins: [
+      new ExtractTextPlugin('[name].css')
+    ]
   }
 }

@@ -3,9 +3,11 @@
   - [X] 2016-09-02 es6 modules
   - [X] 2016-09-04 loading angular html templates
   - [X] 2016-09-07 loading css from module level
-  - [ ] app and vendor bundles
+  - [o] app and vendor bundles
+    - [o] css
+    - [ ] javascript
   - [ ] postcss ?
-  - [o] wallaby, mocha, chai, sinon
+  - [ ] wallaby, mocha, chai, sinon
 
 2. eslint or tslint?
   - [ ] pre-commit hook
