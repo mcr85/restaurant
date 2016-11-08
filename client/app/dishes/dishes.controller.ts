@@ -6,6 +6,8 @@ export default class DishesController {
 
   constructor(DishesService) {
     'ngInject'
+
+    console.log('DishesController called')
   
     this.dishes = null
 

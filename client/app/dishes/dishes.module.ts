@@ -1,6 +1,6 @@
 'use strict'
 
-import 'angular'
+import * as angular from 'angular'
 
 import DishesController from './dishes.controller'
 import DishesService from './dishes.service'

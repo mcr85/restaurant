@@ -3,11 +3,10 @@
   - [X] 2016-09-02 es6 modules
   - [X] 2016-09-04 loading angular html templates
   - [X] 2016-09-07 loading css from module level
-  - [o] app and vendor bundles
-    - [o] css
-    - [ ] javascript
-  - [ ] postcss ?
-  - [ ] wallaby, mocha, chai, sinon
+  - [X] 2016-11-08 app and vendor bundles
+    - [X] 2016-11-08 css
+    - [X] 2016-11-08 javascript
+  - [o] tests setup
 
 2. eslint or tslint?
   - [ ] pre-commit hook
@@ -27,6 +26,7 @@
   - https://github.com/Basware/typescript-ng1-style
 
 Launch
-`mongod --dbpath ~/data/db`
-`npm run build:dev && npm run serve:dev`
+`mongod --dbpath ~/data/db` - run mongo db
+`npm run serve:dev` - run express api server
+`npm run build:dev && npm run serve-frontend:dev` - build app and run front end development server
 

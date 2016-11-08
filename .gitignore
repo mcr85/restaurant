@@ -1,6 +1,8 @@
 .DS_Store
-node_modules/
+.agignore
+.vscode/
 app-typings/
-public/
-.vscode
+client/.tern-project
+node_modules/
 npm-debug.log
+public/
