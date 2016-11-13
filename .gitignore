@@ -5,4 +5,5 @@ app-typings/
 client/.tern-project
 node_modules/
 npm-debug.log
+dist/
 public/

@@ -25,8 +25,3 @@
   - https://angular.io/styleguide
   - https://github.com/Basware/typescript-ng1-style
 
-Launch
-`mongod --dbpath ~/data/db` - run mongo db
-`npm run serve:dev` - run express api server
-`npm run build:dev && npm run serve-frontend:dev` - build app and run front end development server
-

@@ -3,13 +3,13 @@
   "version": "0.0.2",
   "private": true,
   "scripts": {
-    "serve:dev": "nodemon index.js",
-    "serve-frontend:dev": "webpack-dev-server --config webpack.config.js",
-    "build:dev": "webpack --config webpack.config.js",
-    "prebuild:dev": "npm run clean-public && npm run copy-files",
+    "serve-api": "nodemon index.js",
+    "serve-fe": "webpack-dev-server --config webpack.config.js --content-base dist/",
+    "prebuild-fe": "npm run clean-dist && npm run copy-files",
+    "build-fe": "webpack --config webpack.config.js",
     "validate-webpack": "webpack-validator webpack.config.js",
-    "clean-public": "rimraf public",
-    "copy-files": "cpy 'client/favicon.ico' 'client/index.html' 'client/init_style.css' public"
+    "clean-dist": "rimraf dist",
+    "copy-files": "cpy client/favicon.ico client/index.html client/init_style.css dist"
   },
   "dependencies": {
     "angular": "^1.5.8",
