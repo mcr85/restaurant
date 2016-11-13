@@ -1,42 +1,39 @@
 'use strict'
 
 import * as angular from 'angular'
-import MainController from './main.controller'
 import { Dishes } from './dishes'
 
-export default class App {
-  public static bootstrap() {
-    const App = angular
-      .module('app', [
-        'ui.router',
-        'ngResource',
-        'ngMaterial',
-        'md.data.table',
-        Dishes.name
-      ])
-      .config(config)
-      .controller('MainController', MainController)
+class AppComponent implements ng.IComponentOptions {
+  public template: string = require('./app.html').toString()
+}
 
-    function config($stateProvider) {
-      'ngInject'
+export const App = angular
+  .module('app', [
+    'ui.router',
+    'ngResource',
+    'ngMaterial',
+    'md.data.table',
+    Dishes.name
+  ])
+  .component('app', new AppComponent())
+  .config(config)
 
-      $stateProvider
-        .state('home', {
-          template: `<h1>Home</h1>`,
-          url: '/',
-        })
-        .state('dishes', {
-          url: '/dishes',
-          template: require('./dishes/dishes.html'),
-          controller: 'DishesController',
-          controllerAs: 'dishesCtrl'
-        })
-        .state('menus', {
-          url: '/menus',
-          template: `<h1>Menus</h1>`
-        })
-    }
+function config($stateProvider) {
+  'ngInject'
 
-    angular.bootstrap(document, [App.name], { 'strictDi': true })
-  }
+  $stateProvider
+    .state('home', {
+      template: `<h1>Home</h1>`,
+      url: '/',
+    })
+    .state('dishes', {
+      url: '/dishes',
+      template: require('./dishes/dishes.html'),
+      controller: 'DishesController',
+      controllerAs: 'dishesCtrl'
+    })
+    .state('menus', {
+      url: '/menus',
+      template: `<h1>Menus</h1>`
+    })
 }

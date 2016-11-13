@@ -1,5 +1,6 @@
 'use strict'
 
-import App from './app'
+import { App } from './app'
 
-App.bootstrap();
+// need to actually use imported code to appear in bundle
+App;

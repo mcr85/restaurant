@@ -1,3 +1,3 @@
 'use strict'
 
-export { default } from './app'
+export { App } from './app'
