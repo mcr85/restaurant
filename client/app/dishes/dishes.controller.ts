@@ -7,14 +7,10 @@ export default class DishesController {
   constructor(DishesService) {
     'ngInject'
 
-    console.log('DishesController called')
-  
     this.dishes = null
 
     // on initialize
-    this.loadDishesPromise = DishesService.query().$promise.then((data) => {
-      console.log('dishes', data)
-      this.dishes = data
-    })
+    this.loadDishesPromise = DishesService.query().$promise
+      .then(data => (this.dishes = data))
   }
 }

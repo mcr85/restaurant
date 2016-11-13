@@ -7,6 +7,9 @@ Info
 
 Restaurant management system built using MEAN stack.
 
+Using barrels to rollup exports from several modules.
+Check here for more info: `What are all the index.ts used for?`_ 
+
 Requirements
 ============
 
@@ -48,3 +51,4 @@ See node-sass readme_ when having trouble with creating libsass binary.
 
 .. _readme: https://github.com/sass/node-sass/blob/master/README.md
 .. _`mongorestore docs`: https://docs.mongodb.com/manual/reference/program/mongorestore/
+.. _`What are all the index.ts used for?`: http://stackoverflow.com/questions/37564906/what-are-all-the-index-ts-used-for

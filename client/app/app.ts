@@ -2,7 +2,7 @@
 
 import * as angular from 'angular'
 import MainController from './main.controller'
-import Dishes from './dishes/dishes.module'
+import { Dishes } from './dishes'
 
 export default class App {
   public static bootstrap() {
