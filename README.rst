@@ -38,11 +38,42 @@ Run mongo
 Run express api server
   `npm run serve-api`
 
-Build client application for the first time
-  `npm run build-fe`
+Run front end development server
+  `npm start`
 
-Run client application development server
-  `npm run serve-fe`
+Building front end
+  `npm run build:dev`
+
+Testing
+=======
+
+For unit tests, we're using Facebook's Jest testing framework: http://facebook.github.io/jest
+
+`npm run test` - run unit tests
+`npm run test:watch` - run unit tests in watch mode - reruns tests on file change
+
+Debugging tests
+---------------
+
+For Visual Studio Code users, use following configuration in *launch.json*:
+
+.. code-block:: json
+
+  {
+    "name": "Run Tests With Debugger",
+    "type": "node",
+    "request": "launch",
+    "port": 5858,
+    "address": "localhost",
+    "stopOnEntry": false,
+    "runtimeExecutable": null,
+    "runtimeArgs": [
+      "--debug-brk",
+      "./node_modules/jest/bin/jest",
+      "-i"
+    ],
+    "cwd": "${workspaceRoot}"
+  }
 
 Troubleshooting
 ===============
