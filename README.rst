@@ -7,6 +7,8 @@ Info
 
 Restaurant management system built using MEAN stack.
 
+Using Angular 1.x for client app - written in TypeScript, using ng-metadata decorators.
+
 Using barrels to rollup exports from several modules.
 Check here for more info: `What are all the index.ts used for?`_ 
 
