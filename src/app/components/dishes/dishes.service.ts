@@ -5,6 +5,6 @@ export class DishesService {
   constructor(@Inject('$resource') private $resource) { }
 
   getDishes() {
-    return this.$resource('/api/dishes')
+    return this.$resource('/api/dishes').query().$promise
   }
 }

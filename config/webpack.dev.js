@@ -72,6 +72,13 @@ module.exports = function (env) {
       port: METADATA.PORT,
       host: METADATA.HOST,
 
+      proxy: {
+        '/api/**': {
+          target: 'http://localhost:3000',
+          secure: false
+        }
+      },
+
       // HTML5 History API support: no need for # in URLs
       // automatically redirect 404 errors to the index.html page
       // uses connect-history-api-fallback behind the scenes: https://github.com/bripkens/connect-history-api-fallback

@@ -3,8 +3,6 @@ import { DishesService } from './dishes.service'
 
 const templateUrl = require('./dishes.html')
 
-console.error('templateUrl', templateUrl)
-
 @Component({
   selector: 'dishes',
   templateUrl,
@@ -16,6 +14,6 @@ export class DishesComponent implements OnInit {
   constructor(private dishesService: DishesService) { }
 
   ngOnInit() {
-    this.dishesService.getDishes().$promise.then(data => this.dishes = data)
+    this.dishesService.getDishes().then(data => this.dishes = data)
   }
 }
