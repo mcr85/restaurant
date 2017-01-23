@@ -10,10 +10,16 @@ const templateUrl = require('./dishes.html')
 })
 export class DishesComponent implements OnInit {
   dishes
+  dishesPromise: ng.IPromise<any>
+  query
 
   constructor(private dishesService: DishesService) { }
 
   ngOnInit() {
-    this.dishesService.getDishes().then(data => this.dishes = data)
+    this.query = {
+      order: 'name'
+    }
+
+    this.dishesPromise = this.dishesService.getDishes().then(data => this.dishes = data)
   }
 }

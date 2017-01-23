@@ -7,8 +7,8 @@
 </md-list>-->
 
 <md-table-container>
-  <table md-table md-progress="$ctrl.loadDishesPromise">
-    <thead md-head md-order="$ctrl.order">
+  <table md-table md-progress="$ctrl.dishesPromise">
+    <thead md-head md-order="$ctrl.query.order">
       <tr md-row>
         <td md-column>#</td>
         <td md-column md-order-by="name">Nazwa</td>
@@ -18,7 +18,7 @@
       </tr>
     </thead>
     <tbody md-body>
-      <tr md-row ng-repeat="dish in $ctrl.dishes | orderBy: $ctrl.order">
+      <tr md-row ng-repeat="dish in $ctrl.dishes | orderBy: $ctrl.query.order">
         <td md-cell>{{ $index }}</td>
         <td md-cell>{{ dish.name }}</td>
         <td md-cell>{{ dish.category_id }}</td>
