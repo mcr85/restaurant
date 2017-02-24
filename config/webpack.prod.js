@@ -7,6 +7,7 @@ const helpers = require('./helpers')
 const autoprefixer = require('autoprefixer')
 const CompressionPlugin = require('compression-webpack-plugin')
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin')
+const WebpackSHAHash = require('webpack-sha-hash')
 
 const METADATA = webpackMerge(commonConfig.metadata, {
   ENV: process.env.NODE_ENV = process.env.ENV = 'production',
@@ -18,12 +19,10 @@ module.exports = function (env) {
   return webpackMerge(commonConfig, {
     devtool: 'source-map',
 
-    entry: {
-      'polyfills': helpers.root('src/polyfills.ts'),
-      'main-styles': helpers.root('src/main-styles.ts'),
-      'vendor-styles': helpers.root('src/vendor-styles.ts'),
-      'vendor': helpers.root('src/vendor.ts'),
-      'main': helpers.root('src/main.ts')
+    output: {
+      filename: '[name].bundle.js',
+      sourceMapFilename: '[name].map',
+      chunkFilename: '[id].chunk.js'
     },
 
     module: {
@@ -59,15 +58,15 @@ module.exports = function (env) {
       }),
 
       new webpack.DefinePlugin({
-        'ENV': JSON.stringify(METADATA.ENV),
-        'NODE_ENV': JSON.stringify(METADATA.ENV),
-        'PRODUCTION': METADATA.PRODUCTION,
-        'DEVELOPMENT': METADATA.DEVELOPMENT,
+        ENV: JSON.stringify(METADATA.ENV),
+        NODE_ENV: JSON.stringify(METADATA.ENV),
+        PRODUCTION: METADATA.PRODUCTION,
+        DEVELOPMENT: METADATA.DEVELOPMENT,
         'process.env': {
-          'ENV': JSON.stringify(METADATA.ENV),
-          'NODE_ENV': JSON.stringify(METADATA.ENV),
-          'PRODUCTION': METADATA.PRODUCTION,
-          'DEVELOPMENT': METADATA.DEVELOPMENT
+          ENV: JSON.stringify(METADATA.ENV),
+          NODE_ENV: JSON.stringify(METADATA.ENV),
+          PRODUCTION: METADATA.PRODUCTION,
+          DEVELOPMENT: METADATA.DEVELOPMENT
         }
       }),
 
@@ -105,7 +104,9 @@ module.exports = function (env) {
       new CompressionPlugin({
         regExp: /\.css$|\.html$|\.js$|\.map$/,
         threshold: 2 * 1024
-      })
+      }),
+
+      new WebpackSHAHash()
     ]
   })
 }

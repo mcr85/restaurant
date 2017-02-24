@@ -1,7 +1,6 @@
 'use strict'
 
 const webpack = require('webpack')
-
 const webpackMerge = require('webpack-merge')
 const commonConfig = require('./webpack.common.js')
 const helpers = require('./helpers')
@@ -19,13 +18,6 @@ module.exports = function (env) {
   return webpackMerge(commonConfig, {
     devtool: 'source-map',
     cache: true,
-    entry: {
-      'polyfills': helpers.root('src/polyfills.ts'),
-      'main-styles': helpers.root('src/main-styles.ts'),
-      'vendor-styles': helpers.root('src/vendor-styles.ts'),
-      'vendor': helpers.root('src/vendor.ts'),
-      'main': helpers.root('src/main.ts')
-    },
 
     module: {
       rules: [
@@ -38,7 +30,7 @@ module.exports = function (env) {
           test: [/\.sass$/, /\.scss$/],
           loader: ExtractTextWebpackPlugin.extract({
             fallbackLoader: 'style-loader',
-            loader: 'css-loader?sourceMap!sass-loader?sourceMap'
+            loader: 'raw-loader!sass-loader'
           })
         }
       ]
@@ -49,15 +41,15 @@ module.exports = function (env) {
         debug: true
       }),
       new webpack.DefinePlugin({
-        'ENV': JSON.stringify(METADATA.ENV),
-        'NODE_ENV': JSON.stringify(METADATA.ENV),
-        'PRODUCTION': METADATA.PRODUCTION,
-        'DEVELOPMENT': METADATA.DEVELOPMENT,
+        ENV: JSON.stringify(METADATA.ENV),
+        NODE_ENV: JSON.stringify(METADATA.ENV),
+        PRODUCTION: METADATA.PRODUCTION,
+        DEVELOPMENT: METADATA.DEVELOPMENT,
         'process.env': {
-          'ENV': JSON.stringify(METADATA.ENV),
-          'NODE_ENV': JSON.stringify(METADATA.ENV),
-          'PRODUCTION': METADATA.PRODUCTION,
-          'DEVELOPMENT': METADATA.DEVELOPMENT
+          ENV: JSON.stringify(METADATA.ENV),
+          NODE_ENV: JSON.stringify(METADATA.ENV),
+          PRODUCTION: METADATA.PRODUCTION,
+          DEVELOPMENT: METADATA.DEVELOPMENT
         }
       }),
       new webpack.optimize.CommonsChunkPlugin({
@@ -85,11 +77,6 @@ module.exports = function (env) {
       // reference: http://jaketrent.com/post/pushstate-webpack-dev-server/
       historyApiFallback: true,
 
-      // file watch configuration
-      watchOptions: {
-        aggregateTimeout: 300,
-        poll: 1000
-      },
       contentBase: helpers.root('src/app') // necessary so that assets are accessible
     }
   })

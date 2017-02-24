@@ -7,7 +7,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin')
 const { CheckerPlugin } = require('awesome-typescript-loader')
-const WebpackSHAHash = require('webpack-sha-hash')
 
 module.exports = {
   stats: {
@@ -15,11 +14,19 @@ module.exports = {
     reasons: true
   },
 
+  entry: {
+    'polyfills': helpers.root('src/polyfills.ts'),
+    'main-styles': helpers.root('src/main-styles.ts'),
+    'vendor-styles': helpers.root('src/vendor-styles.ts'),
+    'vendor': helpers.root('src/vendor.ts'),
+    'main': helpers.root('src/main.ts')
+  },
+
   output: {
     path: helpers.root('dist'),
-    filename: '[name].[hash].bundle.js',
-    sourceMapFilename: '[name].[hash].map',
-    chunkFilename: '[id].[hash].chunk.js'
+    filename: '[name].bundle.js',
+    sourceMapFilename: '[name].map',
+    chunkFilename: '[id].chunk.js'
   },
 
   resolve: {
@@ -111,8 +118,7 @@ module.exports = {
         'vendor',
         'main'
       ])
-    }),
-    new WebpackSHAHash()
+    })
   ],
   node: {
     global: true,

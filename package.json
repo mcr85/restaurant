@@ -123,7 +123,8 @@
     ],
     "moduleFileExtensions": [
       "ts",
-      "js"
+      "js",
+      "html"
     ],
     "moduleNameMapper": {
       "common/(.*)": "<rootDir>/src/app/common/$1",
@@ -131,7 +132,8 @@
     },
     "rootDir": ".",
     "transform": {
-      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js",
+      "(html)": "<rootDir>/jest-templatecache-transformer.js"
     },
     "testResultsProcessor": "<rootDir>/node_modules/ts-jest/coverageprocessor.js",
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
